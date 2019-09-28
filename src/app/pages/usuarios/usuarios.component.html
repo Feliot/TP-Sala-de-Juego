@@ -1,0 +1,15 @@
+<p> usuarios works!</p>
+<div *ngIf='usuarios.length > 0; else nousuarios'> 
+<ul *ngFor="let u of usuarios">
+<li>
+    {{u.nombre}} <br/>
+    {{u.apellido}} <br/>
+    {{u.dni}}
+    <button (click)="deleteUsuario($event, u)" >Delete</button>
+</li>
+</ul>
+
+</div>
+<ng-template #nousuarios|>
+  <p>nada</p>
+</ng-template>
