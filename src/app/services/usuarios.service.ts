@@ -5,6 +5,7 @@ import{ Observable } from 'rxjs';
 import{ map } from 'rxjs/operators';
 import { database } from 'firebase';
 
+
 @Injectable({ 
   providedIn: 'root'
 })
@@ -21,17 +22,30 @@ usuarioDoc: AngularFirestoreDocument<Usuario>;
         data.id = a.payload.doc.id;
         return data;
       })
-    }))
+    }),)
   }
   GetUsers(){
-      return this.usuarios;
+    console.log(this.usuarios);
+      return this.usuarios = this.usuariosCollection.snapshotChanges().pipe(map(actions=>{
+        return actions.map(a =>{
+          const data= a.payload.doc.data() as Usuario;
+          data.id = a.payload.doc.id;
+          return data;
+        })
+      }),)
   }
   deleteUsuario(usuario: Usuario){
     this.usuarioDoc= this.db.doc(`usuarios/${usuario.id}`); 
     console.log(this.usuarioDoc);
     this.usuarioDoc.delete();
     }
-    addUsuario(usuario : Usuario){
+
+  addUsuario(usuario : Usuario){
       this.usuariosCollection.add(usuario);
-    }
+  }
+  updateUsuario(usuario:Usuario){
+    this.usuarioDoc= this.db.doc(`usuarios/${usuario.id}`);
+    this.usuarioDoc.update(usuario);
+  }
+  
 }

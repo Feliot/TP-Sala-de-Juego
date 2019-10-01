@@ -1,15 +1,18 @@
 <p> usuarios works!</p>
-<div *ngIf='usuarios.length > 0; else nousuarios'> 
-<ul *ngFor="let u of usuarios">
-<li>
-    {{u.nombre}} <br/>
-    {{u.apellido}} <br/>
-    {{u.dni}}
-    <button (click)="deleteUsuario($event, u)" >Delete</button>
-</li>
-</ul>
-
+<div *ngIf='usuarios.length > 0; else nousuarios' > 
+  <div mat-nav-list class="example-button-row" *ngFor="let u of usuarios">
+  <div mat-list-item>
+      {{u.nombre}} 
+      {{u.apellido}} 
+      {{u.dni}}
+      <button (click)="deleteUsuario($event, u)" mat-icon-button color="warn" aria-label='Eliminar $(u.nombre)'>
+          <i class="material-icons">delete_forever</i>
+        </button>
+  </div>  
+  </div> 
 </div>
+
 <ng-template #nousuarios|>
-  <p>nada</p>
+  <p>no hay usuarios</p>
 </ng-template>
+ppp

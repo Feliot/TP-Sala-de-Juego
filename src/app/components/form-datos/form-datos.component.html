@@ -1,0 +1,10 @@
+<table class="table">
+    <thead> 
+        <td *ngFor="let item of arraypersona">{{ item }} </td>
+
+     </thead>
+     <tbody *ngFor="let item of personas" app-fila [item]="item">
+    
+    </tbody>    
+
+</table>

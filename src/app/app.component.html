@@ -1,2 +1,32 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>TP Sala de Juegos</span>
+      <span class="example-spacer"></span>
+      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
+      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
+    
+    
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item [routerLink]="['home']">
+            <mat-icon>dialpad</mat-icon>
+            <span>Home</span>
+          </button>
+          <button mat-menu-item disabled>
+            <mat-icon>voicemail</mat-icon>
+            <span>Check voice mail</span>
+          </button>
+          <button mat-menu-item [routerLink]="['usuarios']">
+            <mat-icon>person_add_disabled</mat-icon>
+            <span>Usuarios</span>
+          </button>
+        </mat-menu>
+    
+    
+    
+    </mat-toolbar-row>
+  </mat-toolbar>
 
 <router-outlet></router-outlet>
