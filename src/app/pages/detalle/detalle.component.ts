@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import{ Usuario, miUsuario } from '../../models/usuario'
+import { UsuariosService } from '../../services/usuarios.service'
+import { FormDatosComponent } from '../../components/form-datos/form-datos.component'
 
 @Component({
   selector: 'app-detalle',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetalleComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(public usuarioService: UsuariosService) { 
+  } 
+  usuarios=[];
   ngOnInit() {
+    this.usuarioService.GetUsers().subscribe(usuarios =>{
+      this.usuarios = usuarios;
+      console.log(usuarios);
+    }, function (){console.log("Error");})
+    console.log("ngOnInit");
+  }
+  Cargar(usuario:Usuario) {
+    console.log(usuario);
+    this.usuarios.push(new miUsuario(usuario.nombre, usuario.apellido, usuario.dni));
   }
 
 }

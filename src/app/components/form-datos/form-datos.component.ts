@@ -1,22 +1,20 @@
-import { Component, OnInit, Input ,Output} from '@angular/core';
-import { Persona } from 'src/app/clases/persona';
+import { Output} from '@angular/core';
+import{ Usuario, miUsuario } from '../../models/usuario'
 
+import { Component, OnInit, Input } from '@angular/core';
+import { UsuariosComponent } from 'src/app/pages/usuarios/usuarios.component';
 @Component({
   selector: 'app-form-datos',
   templateUrl: './form-datos.component.html',
   styleUrls: ['./form-datos.component.css']
 })
-export class FormDatosComponent implements OnInit {
-  persona = new Persona();
-  //arraypersona: string[];
-  arraypersona = Object.keys(this.persona);
-  constructor() { }
- 
-  @Input() personas;
-  ngOnInit() {
-    //for (let item of Object.keys(this.persona)) {
-    //  console.log(item);
-     //}
-  }
 
+export class FormDatosComponent implements OnInit {
+
+  arrayUsuario = Object.keys(new miUsuario);
+  constructor() { }
+  @Input() usuarios;
+  ngOnInit() {
+  }
 }
+
