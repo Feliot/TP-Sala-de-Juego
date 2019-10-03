@@ -6,6 +6,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { AddusuarioComponent } from './components/addusuario/addusuario.component';
 import { FormDatosComponent } from './components/form-datos/form-datos.component';
 import { FilaComponent } from './components/fila/fila.component';
+import { AnagramaComponent } from './components/anagrama/anagrama.component';
 /* import { PagesModule } from './pages/pages.module'; */
 
 import { NgModule } from '@angular/core';
@@ -25,4 +26,5 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 export const routingComponents = [HomeComponent, UsuariosComponent, 
-  JuegosComponent, DetalleComponent, ErrorComponent, AddusuarioComponent, FormDatosComponent, FilaComponent]
+  JuegosComponent, DetalleComponent, ErrorComponent, AddusuarioComponent,
+   FormDatosComponent, FilaComponent, AnagramaComponent]

@@ -1,11 +1,12 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
-      <span>TP Sala de Juegos</span>
+      <span>└</span><mat-icon>videogame_asset</mat-icon> 
+      <span class="titulo"> &nbsp;TP Sala de Juegos  &nbsp; </span>  
+      <mat-icon>videogame_asset</mat-icon><span>┐</span>
       <span class="example-spacer"></span>
-      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">videogame_asset</mat-icon>
-      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">games</mat-icon>
+      <button mat-icon-button [routerLink]="['home']"><span>Menu</span> </button>
       <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-          <mat-icon>more_vert</mat-icon>
+        <mat-icon>more_vert</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
           <button mat-menu-item [routerLink]="['detalle']">
@@ -16,18 +17,26 @@
             <mat-icon>person_add_disabled</mat-icon>
             <span>Usuarios</span>
           </button>
-
           <button mat-menu-item [routerLink]="['home']">
             <mat-icon>home</mat-icon>
             <span>Home</span>
           </button>
 
+        <button mat-menu-item [matMenuTriggerFor]="juegos">Juegos</button>
+        <mat-menu #juegos="matMenu" xPosition="before">
           <button mat-menu-item [routerLink]="['juegos']">
             <mat-icon>videogame_asset</mat-icon>
-            <span>Usuarios</span>
+            <span>Anagrama</span>
           </button>
-        </mat-menu>
-    
+          <button mat-menu-item [routerLink]="['juegos']">
+            <mat-icon>games</mat-icon>
+            <span>Tateti</span>
+          </button>
+      </mat-menu>
+          
+    </mat-menu>
+
+
     </mat-toolbar-row>
   </mat-toolbar>
 <div class="contenedor" cdk-scrollable>
