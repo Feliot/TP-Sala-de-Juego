@@ -12,9 +12,15 @@ import { UsuariosComponent } from 'src/app/pages/usuarios/usuarios.component';
 export class FormDatosComponent implements OnInit {
 
   arrayUsuario = Object.keys(new miUsuario);
+  columnsToDisplay: string[] = this.arrayUsuario.slice();
+  ArrayUsuarios=[];
+
   constructor() { }
-  @Input() usuarios;
+  @Input() usuarios:Usuario[];
+  
   ngOnInit() {
   }
+  
+  
 }
 

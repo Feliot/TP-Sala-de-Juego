@@ -1,6 +1,6 @@
-<td  mat-row> {{item.nombre}}</td>
-<td  mat-row> {{item.apellido}} </td>
-<td  mat-row> {{item.dni}} </td>
+<td  mat-cell *matCellDef="let user"> {{item.nombre}}</td>
+<td  mat-cell *matCellDef="let user"> {{item.apellido}} </td>
+<td  mat-cell *matCellDef="let user"> {{item.dni}} </td>
 <!-- <td mat-cell> {{item.sueldo}} </td>
 <td mat-cell> {{item.edad}} </td>
 <td mat-cell> {{item.licencia}} </td>

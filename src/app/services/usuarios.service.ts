@@ -34,6 +34,9 @@ usuarioDoc: AngularFirestoreDocument<Usuario>;
         })
       }),)
   }
+  getUsuariosSC(){
+    return this.usuarios;
+  } 
   deleteUsuario(usuario: Usuario){
     this.usuarioDoc= this.db.doc(`usuarios/${usuario.id}`); 
     console.log(this.usuarioDoc);

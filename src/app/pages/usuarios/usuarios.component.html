@@ -1,5 +1,5 @@
-<p> usuarios works!</p>
-<div *ngIf='usuarios.length > 0; else nousuarios' > 
+<h3 mat-subheader>Listado de Usuarios</h3>
+<div *ngIf='usuarios.length > 0 ; else nousuarios'> 
   <div mat-nav-list class="example-button-row" *ngFor="let u of usuarios">
   <div mat-list-item>
       {{u.nombre}} 
@@ -12,7 +12,6 @@
   </div> 
 </div>
 
-<ng-template #nousuarios|>
+<ng-template #nousuarios>
   <p>no hay usuarios</p>
 </ng-template>
-ppp
