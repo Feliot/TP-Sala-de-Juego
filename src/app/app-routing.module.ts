@@ -11,10 +11,15 @@ import { AnagramaComponent } from './components/anagrama/anagrama.component';
 
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { TatetiComponent } from './components/tateti/tateti.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
-  {path: 'juegos', component: JuegosComponent},
+  {path: 'juegos', component: JuegosComponent,
+  children:[
+    {path: 'anagrama', component: AnagramaComponent},
+    {path: 'tateti', component: TatetiComponent}
+  ]},
   {path: 'detalle', component: DetalleComponent},
   {path: 'usuarios', component: UsuariosComponent},
   {path: '', redirectTo : 'home' , pathMatch: 'full'},

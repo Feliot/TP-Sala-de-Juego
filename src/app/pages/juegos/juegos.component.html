@@ -1,1 +1,16 @@
-<p>Juegos works!</p>
+<h3>Juegos</h3>
+<div class="contenedora">
+       <ul>
+            <button mat-button  [routerLink]="['./anagrama']">
+                <mat-icon>videogame_asset</mat-icon>
+                <span>Ir a anagrama</span>
+            </button>
+            <button mat-button  [routerLink]="['./tateti']">
+                <mat-icon>home</mat-icon>
+                <span>Ir a Tateti</span>
+            </button>
+       </ul>
+      
+
+<router-outlet></router-outlet>
+</div>

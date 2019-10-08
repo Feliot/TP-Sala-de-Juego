@@ -1,7 +1,7 @@
-import { RouterModule } from '@angular/router';
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-/* import {  routingComponents } from '../app-routing.module'; */
+import {  routingComponents , AppRoutingModule } from '../app-routing.module';
 /* import { ClientesComponent } from './clientes/clientes.component'
 import { HomeComponent } from './home/home.component'
 import { DetalleComponent } from './detalle/detalle.component';
@@ -20,7 +20,8 @@ import { MaterialModule } from '../material'
     CommonModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    MaterialModule
+    MaterialModule,
+    AppRoutingModule
   ],
   providers: [UsuariosService]
 })

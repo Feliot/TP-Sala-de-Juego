@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary"> 
     <mat-toolbar-row>
       <span>└</span><mat-icon>videogame_asset</mat-icon> 
       <span class="titulo"> &nbsp;TP Sala de Juegos  &nbsp; </span>  
@@ -24,11 +24,11 @@
 
         <button mat-menu-item [matMenuTriggerFor]="juegos">Juegos</button>
         <mat-menu #juegos="matMenu" xPosition="before">
-          <button mat-menu-item [routerLink]="['juegos']">
+          <button mat-menu-item [routerLink]="['juegos/anagrama']">
             <mat-icon>videogame_asset</mat-icon>
             <span>Anagrama</span>
           </button>
-          <button mat-menu-item [routerLink]="['juegos']">
+          <button mat-menu-item [routerLink]="['juegos/tateti']">
             <mat-icon>games</mat-icon>
             <span>Tateti</span>
           </button>
