@@ -1,0 +1,9 @@
+.subtitulo{
+    padding: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    float: auto;
+    border-radius: 5px; 
+  /*   width: 50%; */
+    margin:auto;
+  }

@@ -8,7 +8,8 @@ import { PagesModule } from './pages/pages.module';
 //material
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { MaterialModule } from './material';
-import { TatetiComponent } from './components/tateti/tateti.component' 
+import { TatetiComponent } from './components/tateti/tateti.component';
+import { MapaDelTesoroComponent } from './components/mapa-del-tesoro/mapa-del-tesoro.component' 
 /* import { DetalleComponent } from './pages/detalle/detalle.component';
 import { ClientesComponent } from './pages/clientes/clientes.component';
 import { HomeComponent } from './pages/home/home.component'; */
@@ -20,7 +21,8 @@ import {MatListModule} from '@angular/material/list'; */
   declarations: [
     AppComponent,
     routingComponents,
-    TatetiComponent
+    TatetiComponent,
+    MapaDelTesoroComponent
   ],
   imports: [
     BrowserModule,

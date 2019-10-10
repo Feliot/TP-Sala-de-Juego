@@ -1,15 +1,23 @@
-<h3>Juegos</h3>
+<h3 class="subtitulo">Juegos</h3>
 <div class="contenedora">
-       <ul>
-            <button mat-button  [routerLink]="['./anagrama']">
-                <mat-icon>videogame_asset</mat-icon>
-                <span>Ir a anagrama</span>
-            </button>
-            <button mat-button  [routerLink]="['./tateti']">
-                <mat-icon>home</mat-icon>
-                <span>Ir a Tateti</span>
-            </button>
-       </ul>
+     <span><button mat-button  [routerLink]="['./anagrama']">
+        <mat-icon>videogame_asset</mat-icon>
+        <span>Anagrama</span>
+    </button></span>
+    <span class="espacio"></span>
+    <span><button mat-button  [routerLink]="['./tateti']">
+        <mat-icon>games</mat-icon>
+        <span>Tateti</span>
+    </button>
+    </span>
+    <span class="espacio"></span>
+    <span><button mat-button  [routerLink]="['./mapatesoro']">
+        <mat-icon>my_location</mat-icon>
+        <span>Mapa del Tesoro</span>
+    </button>
+    </span>
+    
+
       
 
 <router-outlet></router-outlet>

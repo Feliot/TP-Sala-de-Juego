@@ -1,6 +1,42 @@
 .contenedora{
-    background-color: whitesmoke;
+    background-color: rgba(250, 250, 250, 0.8);
     padding: 0 8px;
+    margin: 1px;
+    width: auto;
     overflow: auto; 
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
+    box-shadow: 0 0 20px 1px cadetblue;
+    border-radius: 5px;
 }
+.liks{
+    display: table-column-group;
+}
+.espacio{
+    flex: 1 1 auto;
+    width: 5px;
+    position: relative;
+}
+
+.mat-button{
+    margin-bottom: 0px;
+    /* padding: 1px; */
+    border-radius: 5px;
+    margin: 1px auto;
+}
+ul{
+    margin: auto;
+}
+.mat-icon, .span{
+    padding: 0px;
+    border-spacing: 0cm;
+    margin-bottom: 0px;
+}
+.subtitulo{
+    padding: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    float: auto;
+    border-radius: 5px; 
+    width: 50%;
+    margin:auto;
+  }

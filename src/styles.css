@@ -8,7 +8,7 @@ body{
     margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
     background-color: black;
     background-image: url("./assets/imagenes/juego0.jpg");
-    color: royalblue;
+    color: rgb(19, 3, 82);
     background-repeat: no-repeat;
     background-position-x: center;
     /* background-size: 100%; */

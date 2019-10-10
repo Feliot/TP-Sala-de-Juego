@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Usuario } from '../models/usuario'
 import{ Observable } from 'rxjs';
@@ -16,16 +16,17 @@ usuarioDoc: AngularFirestoreDocument<Usuario>;
   constructor(public db: AngularFirestore) { 
     /* this.usuarios = this.db.collection('usuarios').valueChanges(); */
     this.usuariosCollection = this.db.collection('usuarios');
-    this.usuarios = this.usuariosCollection.snapshotChanges().pipe(map(actions=>{
-      return actions.map(a =>{
+    this.usuarios = this.usuariosCollection.snapshotChanges().pipe(
+      map(actions=> actions.map(a =>{
         const data= a.payload.doc.data() as Usuario;
-        data.id = a.payload.doc.id;
-        return data;
+        const id = a.payload.doc.id;
+        return {id, ...data};
       })
-    }),)
+    ),)
   }
   GetUsers(){
     console.log(this.usuarios);
+    /* return this.usuarios = this.usuarios */
       return this.usuarios = this.usuariosCollection.snapshotChanges().pipe(map(actions=>{
         return actions.map(a =>{
           const data= a.payload.doc.data() as Usuario;
@@ -38,10 +39,12 @@ usuarioDoc: AngularFirestoreDocument<Usuario>;
     return this.usuarios;
   } 
   deleteUsuario(usuario: Usuario){
+    if (confirm("¿Realmente desea eliminar el Usuario?")){
     this.usuarioDoc= this.db.doc(`usuarios/${usuario.id}`); 
     console.log(this.usuarioDoc);
     this.usuarioDoc.delete();
     }
+  }
 
   addUsuario(usuario : Usuario){
       this.usuariosCollection.add(usuario);

@@ -25,6 +25,7 @@ export class UsuariosComponent implements OnInit {
 
 deleteUsuario(event, usuario){
  console.log(usuario);
+ 
  this.usuarioService.deleteUsuario(usuario)
 }
 }
