@@ -9,6 +9,10 @@
         <mat-icon>more_vert</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
+            <button mat-menu-item [routerLink]="['home']">
+                <mat-icon>home</mat-icon>
+                <span>Home</span>
+              </button>
           <button mat-menu-item [routerLink]="['detalle']">
             <mat-icon>details</mat-icon>
             <span>Detalles</span>
@@ -17,10 +21,7 @@
             <mat-icon>person_add_disabled</mat-icon>
             <span>Usuarios</span>
           </button>
-          <button mat-menu-item [routerLink]="['home']">
-            <mat-icon>home</mat-icon>
-            <span>Home</span>
-          </button>
+         
 
         <button mat-menu-item [matMenuTriggerFor]="juegos" [routerLink]="['juegos']">Juegos</button>
         <mat-menu #juegos="matMenu" xPosition="before">
