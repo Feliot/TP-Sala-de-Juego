@@ -1,12 +1,15 @@
 .example-button-row button,
 .example-button-row a {
-  margin-right: 8px;
+  margin-right: 5px;
 }
 .example-icon {
-  padding: 0 14px;
+  padding: 0 10px;
 }
 .example-spacer {
   flex: 1 1 auto;
+}
+#nameUser{
+  font-size: auto;
 }
 .toolbar{
   font-family: Roboto,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
@@ -40,6 +43,7 @@
 
 }
 .titulo{
-  font-size: 24px;
+  font-size: auto;
+  width: auto;
  /*  font-family: medium-content-sans-serif-font, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;*/
 } 

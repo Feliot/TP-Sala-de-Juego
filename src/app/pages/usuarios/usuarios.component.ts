@@ -9,11 +9,11 @@ import { UsuariosService } from '../../services/usuarios.service'
 })
 export class UsuariosComponent implements OnInit {
 
-  constructor(public usuarioService: UsuariosService) { 
+  constructor(public usuariosService: UsuariosService) { 
   } 
   usuarios= [];
   ngOnInit() {
-    this.usuarioService.GetUsers().subscribe(usuarios =>{
+    this.usuariosService.GetUsers().subscribe(usuarios =>{
       this.usuarios = usuarios;
       console.log(usuarios);
     }, function (){console.log("Error");})
@@ -25,7 +25,6 @@ export class UsuariosComponent implements OnInit {
 
 deleteUsuario(event, usuario){
  console.log(usuario);
- 
- this.usuarioService.deleteUsuario(usuario)
+ this.usuariosService.deleteUsuario(usuario)
 }
 }

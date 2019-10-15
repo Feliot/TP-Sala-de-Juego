@@ -13,6 +13,7 @@ export class UsuariosService {
 usuariosCollection : AngularFirestoreCollection<Usuario>;
 usuarios: Observable<Usuario[]>;
 usuarioDoc: AngularFirestoreDocument<Usuario>;
+user: Usuario = {id:'1'};
   constructor(public db: AngularFirestore) { 
     /* this.usuarios = this.db.collection('usuarios').valueChanges(); */
     this.usuariosCollection = this.db.collection('usuarios');
@@ -25,7 +26,7 @@ usuarioDoc: AngularFirestoreDocument<Usuario>;
     ),)
   }
   GetUsers(){
-    console.log(this.usuarios);
+  /*   console.log(this.usuarios); */
     /* return this.usuarios = this.usuarios */
       return this.usuarios = this.usuariosCollection.snapshotChanges().pipe(map(actions=>{
         return actions.map(a =>{
@@ -45,8 +46,10 @@ usuarioDoc: AngularFirestoreDocument<Usuario>;
     this.usuarioDoc.delete();
     }
   }
+  isAutenticated(){
 
-  addUsuario(usuario : Usuario){
+  }
+  addUsuario(usuario: Usuario){
       this.usuariosCollection.add(usuario);
   }
   updateUsuario(usuario:Usuario){

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import{ UsuariosComponent } from '../usuarios/usuarios.component'
+import { UserserviceService } from 'src/app/services/userservice.service';
+import { Usuario } from 'src/app/models/usuario';
+
 
 @Component({
   selector: 'app-home',
@@ -7,10 +9,11 @@ import{ UsuariosComponent } from '../usuarios/usuarios.component'
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+  private user:Usuario;
+  constructor(private authUser : UserserviceService) { }
 
   ngOnInit() {
+    this.user=this.authUser.getUser();
+    console.log('Usuario home:  ',this.user.email);
   }
-
 }

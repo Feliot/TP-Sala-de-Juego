@@ -1,3 +1,13 @@
+.contenedora{
+  align-content: center;
+  text-align: center;
+  margin:auto;
+}
+.espacio{
+  flex: 1 1 auto;
+  width: 5px;
+  float: auto;
+}
 .subtitulo{
     padding: 5px;
     text-align: center;
@@ -10,3 +20,19 @@
   #idjuego{
     font-size: 200px;
   }
+  .mat-button{
+    box-shadow: 0px -10px 15px 0px rgba(0,0,250,0.64);
+  }
+
+  #usuario{
+    float: auto;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgb(50, 50, 250);
+    /* padding: 0 5px 0 5px; */
+    text-align: center;
+    border-bottom: 1px solid black;
+    background: rgba(0, 0, 0, 0.2)
+  }
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}

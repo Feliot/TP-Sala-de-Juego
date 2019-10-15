@@ -10,11 +10,11 @@ import { FormDatosComponent } from '../../components/form-datos/form-datos.compo
 })
 export class DetalleComponent implements OnInit {
 
-  constructor(public usuarioService: UsuariosService) { 
+  constructor(public usuariosService: UsuariosService) { 
   } 
   usuarios=[];
   ngOnInit() {
-    this.usuarioService.GetUsers().subscribe(usuarios =>{
+    this.usuariosService.GetUsers().subscribe(usuarios =>{
       this.usuarios = usuarios;
       console.log(usuarios);
     }, function (){console.log("Error");})

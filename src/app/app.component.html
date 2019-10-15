@@ -3,27 +3,39 @@
       <span>└</span><mat-icon>videogame_asset</mat-icon> 
       <span class="titulo"> &nbsp;TP Sala de Juegos  &nbsp; </span>  
       <mat-icon>videogame_asset</mat-icon><span>┐</span>
+      
       <span class="example-spacer"></span>
-      <button mat-icon-button [routerLink]="['home']"><span>Menu</span> </button>
-      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-        <mat-icon>more_vert</mat-icon>
+    
+    <!--   <button mat-icon-button [routerLink]="['home']"><span>Menu</span> </button> -->
+      <button mat-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <mat-icon>more_vert</mat-icon>
+          <span id="nameUser" *ngIf="isLogin"> {{ username.substring(0, 8) }}..</span> <!-- limitado a 10 caracteres para celular -->
         </button>
         <mat-menu #menu="matMenu">
-            <button mat-menu-item [routerLink]="['home']">
-                <mat-icon>home</mat-icon>
-                <span>Home</span>
-              </button>
-          <button mat-menu-item [routerLink]="['detalle']">
+          <button mat-menu-item [routerLink]="['home']" style="color:blue" *ngIf="isLogin">
+              <span>     {{ username }}</span>
+          </button>
+          <button mat-menu-item [routerLink]="['home']" *ngIf="isLogin">
+            <mat-icon>home</mat-icon>
+            <span>Home</span>
+          </button>
+          <button mat-menu-item [routerLink]="['login']"  *ngIf="!isLogin">
+              <mat-icon>assignment_ind</mat-icon>
+              <span>Login</span>
+          </button>
+          <button mat-menu-item (click)="onClickLogout()" style="color:red" *ngIf="isLogin">
+            <mat-icon>logout</mat-icon>
+            <span>Desloguearse</span>
+          </button>
+          <button mat-menu-item [routerLink]="['detalle']" *ngIf="isLogin">
             <mat-icon>details</mat-icon>
             <span>Detalles</span>
           </button>
-          <button mat-menu-item [routerLink]="['usuarios']">
+          <button mat-menu-item [routerLink]="['usuarios']" *ngIf="isLogin">
             <mat-icon>person_add_disabled</mat-icon>
             <span>Usuarios</span>
           </button>
-         
-
-        <button mat-menu-item [matMenuTriggerFor]="juegos" [routerLink]="['juegos']">Juegos</button>
+        <button mat-menu-item [matMenuTriggerFor]="juegos" [routerLink]="['juegos']" *ngIf="isLogin">Juegos</button>
         <mat-menu #juegos="matMenu" xPosition="before">
           <button mat-menu-item [routerLink]="['juegos/anagrama']">
             <mat-icon>videogame_asset</mat-icon>
