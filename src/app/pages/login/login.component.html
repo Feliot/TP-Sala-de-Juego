@@ -14,9 +14,13 @@
             <input matInput placeholder="password"  type="password" [(ngModel)]="password" required name="password">
 </mat-form-field>
    <br> 
-<button mat-raised-button color="primary" (click)="onSubmitLogin()">Loguear</button>
+<button mat-raised-button color="primary" (click)="onSubmitLogin()">
+    <span>Loguear  </span><mat-icon>email</mat-icon></button>
 <br> 
 <span class="errormje">{{ msjerror }}</span> 
+ <br>
+<button mat-raised-button color="warn" (click)="onSubmitLoginPublic()"><span>Ingreso Público </span><mat-icon>public</mat-icon></button>
+<br> 
 </form>
 </mat-card>
 <!-- <mat-card class="example-card">

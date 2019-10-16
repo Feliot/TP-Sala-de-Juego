@@ -3,8 +3,6 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Usuario } from '../models/usuario'
 import{ Observable } from 'rxjs';
 import{ map } from 'rxjs/operators';
-import { database } from 'firebase';
-
 
 @Injectable({ 
   providedIn: 'root'
@@ -45,9 +43,6 @@ user: Usuario = {id:'1'};
     console.log(this.usuarioDoc);
     this.usuarioDoc.delete();
     }
-  }
-  isAutenticated(){
-
   }
   addUsuario(usuario: Usuario){
       this.usuariosCollection.add(usuario);

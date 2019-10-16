@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import{ Usuario, miUsuario } from '../../models/usuario'
+import{ Puntaje, miPuntaje } from '../../models/puntaje'
 import { UsuariosService } from '../../services/usuarios.service'
 import { FormDatosComponent } from '../../components/form-datos/form-datos.component'
+import { JuegosService } from 'src/app/services/juegos.service';
 
 @Component({
   selector: 'app-detalle',
@@ -10,19 +12,22 @@ import { FormDatosComponent } from '../../components/form-datos/form-datos.compo
 })
 export class DetalleComponent implements OnInit {
 
-  constructor(public usuariosService: UsuariosService) { 
+  constructor(public puntajesService: JuegosService) { 
   } 
-  usuarios=[];
+  puntajes=[];
   ngOnInit() {
-    this.usuariosService.GetUsers().subscribe(usuarios =>{
-      this.usuarios = usuarios;
-      console.log(usuarios);
+    this.puntajesService.GetPuntajes().subscribe(puntajes =>{
+      this.puntajes = puntajes;
+      console.log(puntajes);
     }, function (){console.log("Error");})
     console.log("ngOnInit");
   }
-  Cargar(usuario:Usuario) {
-    console.log(usuario);
-    this.usuarios.push(new miUsuario(usuario.nombre, usuario.apellido, usuario.dni));
+  Cargar(puntaje:Puntaje) {
+    console.log(puntaje);
+   /*  this.usuarios.push(new miUsuario(usuario.nombre, usuario.apellido, usuario.dni)); */
+   this.puntajes.push(new miPuntaje(puntaje.horario ,puntaje.juego, 
+    puntaje.nameuser, puntaje.puntaje,
+    puntaje.detalle, puntaje.uid));
   }
 
 }

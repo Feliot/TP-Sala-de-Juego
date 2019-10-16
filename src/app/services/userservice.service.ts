@@ -108,7 +108,6 @@ getUser():Usuario{
  getAuth(){
    return this.afAuth.authState;
  }
-
  isAutenticated(){
 /*    let mipromesa = new Promise((resolve, reject) =>{
     resolve(this.buscarLogin()),

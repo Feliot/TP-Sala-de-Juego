@@ -1,8 +1,20 @@
 <table mat-table [dataSource]="usuarios" class="mat-elevation-z8">
     <ng-container [matColumnDef]="column" *ngFor="let column of arrayUsuario">
         <th mat-header-cell *matHeaderCellDef> {{ column | titlecase}} </th>
-        <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
-      </ng-container>
+        <td mat-cell *matCellDef="let element"> {{element[column] }} </td>
+      </ng-container> 
+ <!--    <ng-container [matColumnDef]="nameuser">
+        <th mat-header-cell *matHeaderCellDef> Nameuser </th>
+        <td mat-cell *matCellDef="let element"> {{element.nameuser}} </td>
+    </ng-container>
+    <ng-container [matColumnDef]="comentario">
+        <th mat-header-cell *matHeaderCellDef> Comentario </th>
+        <td mat-cell *matCellDef="let element"> {{element.comentario}} </td>
+    </ng-container>
+    <ng-container [matColumnDef]="puntaje">
+        <th mat-header-cell *matHeaderCellDef> Puntaje </th>
+        <td mat-cell *matCellDef="let element"> {{ element.puntaje }} </td>
+    </ng-container> -->
       <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
     <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
 </table>

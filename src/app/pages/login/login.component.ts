@@ -15,6 +15,11 @@ export class LoginComponent implements OnInit {
 public email: string;
 public password: string ;
 /* public miemail = new FormControl('', [Validators.required, Validators.email]); */
+/*   getErrorMessage() {
+    return this.miemail.hasError('required') ? 'You must enter a value' :
+        this.miemail.hasError('miemail') ? 'Not a valid email' :
+        '';
+  } */
   constructor(private miAuth: UserserviceService, private authRout: Router) { 
   }
   ngOnInit() {
@@ -23,12 +28,12 @@ public password: string ;
       this.user = user;
     })
   }
-/*   getErrorMessage() {
-    return this.miemail.hasError('required') ? 'You must enter a value' :
-        this.miemail.hasError('miemail') ? 'Not a valid email' :
-        '';
-  } */
 
+onSubmitLoginPublic(){
+  this.email= 'publico@publico.com';
+  this.password= '123456';
+  this.onSubmitLogin();
+}
   onSubmitLogin(){
 /*     this.miAuth.login(this.email, this.password)
     .then((res) =>{
@@ -42,6 +47,7 @@ public password: string ;
       console.log("logueando, yendo a casa");
       this.authRout.navigate(['/home']);
     })
-    .catch( err => console.log(err))
+    .catch( err => this.msjerror= err)
   }
+
 }

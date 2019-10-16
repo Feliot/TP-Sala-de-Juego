@@ -37,6 +37,8 @@ let valor:boolean;
       return true;
     }else{
       console.log("token NO verificado")
+      this.usuarioService.logOut();
+      this.router.navigate(['/login']);
     }
   }catch(e){
     console.log(e);
