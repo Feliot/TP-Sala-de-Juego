@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { JuegosService } from 'src/app/services/juegos.service';
+import { miPuntaje } from 'src/app/models/puntaje';
+import { UserserviceService } from 'src/app/services/userservice.service';
+import { iif } from 'rxjs';
 
 @Component({
   selector: 'app-mapa-del-tesoro',
@@ -7,10 +11,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapaDelTesoroComponent implements OnInit {
 
-  constructor() {
-   
+  constructor(public juegoS: JuegosService, public userS: UserserviceService) {
    }
-
   ngOnInit() {
     this.calcularTarget();
     }
@@ -28,11 +30,11 @@ getDistance = (e, target) => {
 
 // return an String depending on the distances 
 getDistanceHint = distance => {
-  if (distance < 30) {
+  if (distance < 35) {
     return "Hirviendo!";
-  } else if (distance < 40) {
+  } else if (distance < 45) {
     return "Muy Caliente";
-  } else if (distance < 60) {
+  } else if (distance < 65) {
     return "Caliente";
   } else if (distance < 100) {
     return "Tibio";
@@ -74,7 +76,7 @@ evento(e) {
   this.distanceHint = this.getDistanceHint(distance);
   if (distance < 20 ) {
     alert(`Encontraste el tesoro en ${this.clicks} clicks!`);
-    /* location.reload(); */
+    this.juegoS.addPuntaje(new miPuntaje(this.juegoS.formatearFecha(new Date),'Mapa del tesoro',this.userS.getUser().email, '1','Ganó', this.userS.getUser().id ));
     this.recargar();
   }
 } 
