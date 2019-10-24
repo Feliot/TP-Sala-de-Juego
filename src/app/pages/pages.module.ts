@@ -8,9 +8,12 @@ import { AngularFireModule } from '@angular/fire'
 import { environment }  from '../../environments/environment'
 import { UsuariosService }from '../services/usuarios.service'
 import { MaterialModule } from '../material';
+import { ClienteComponent } from './cliente/cliente.component';
+import { CrearComponent } from './cliente/crear/crear.component';
+import { ClienteLoginComponent } from './cliente/cliente-login/cliente-login.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [ClienteComponent, CrearComponent, ClienteLoginComponent],
   imports: [
     CommonModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),

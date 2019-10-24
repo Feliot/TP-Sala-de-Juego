@@ -50,7 +50,17 @@
             <span>Mapa del tesoro</span>
           </button>
       </mat-menu>
-          
+        <button mat-menu-item [matMenuTriggerFor]="cliente" [routerLink]="['cliente']" *ngIf="isLogin">Cliente</button>
+        <mat-menu #cliente="matMenu" xPosition="before">
+          <button mat-menu-item [routerLink]="['cliente/clienteLogin']">
+            <mat-icon>Login</mat-icon>
+            <span>Login</span>
+          </button>
+          <button mat-menu-item [routerLink]="['cliente/crear']">
+            <mat-icon>create</mat-icon>
+            <span>Crear Cliente</span>
+          </button>
+      </mat-menu>
     </mat-menu>
     
 

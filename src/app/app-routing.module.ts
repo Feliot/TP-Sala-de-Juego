@@ -1,3 +1,7 @@
+import { CrearComponent } from './pages/cliente/crear/crear.component';
+import { ClienteLoginComponent } from './pages/cliente/cliente-login/cliente-login.component';
+
+import { ClienteComponent } from './pages/cliente/cliente.component';
 import { AuthGuard } from './auth/auth.guard';
 import { DetalleComponent } from './pages/detalle/detalle.component';
 import { JuegosComponent } from './pages/juegos/juegos.component';
@@ -32,6 +36,11 @@ const routes: Routes = [
   {path: 'usuarios', component: UsuariosComponent,
   canActivate:[ AuthGuard]},
   {path: 'login', component: LoginComponent},
+  {path: 'cliente', component: ClienteComponent,
+  children:[
+    {path: 'clienteLogin', component: ClienteLoginComponent},
+    {path: 'crear', component: CrearComponent}
+  ]},
   {path: '', redirectTo : 'login' , pathMatch: 'full'},
   {path: '**', component :  ErrorComponent, pathMatch: 'full'}
 ];
