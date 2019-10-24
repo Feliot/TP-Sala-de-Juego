@@ -12,7 +12,7 @@ token: string;
   crearCliente(cliente: Cliente){
    /*  Cliente={user:"pepe", pass:"123"} https://github.com/MarioAr/servidor-prueba-front*/
    console.log(JSON.stringify(cliente));
-   return this.http.post('http://192.168.2.32:3003/clientes', cliente).subscribe(resp =>{
+   return this.http.post('http://127.0.0.1:3003/clientes', {cliente}).subscribe(resp =>{
       console.log(resp);
     });
   }
@@ -23,7 +23,7 @@ devolverCliente(cliente: Cliente){
 loguearCliente(cliente: Cliente){
   /*  Cliente{user:"pepe", pass:"123"} */
   console.log(JSON.stringify(cliente));
-  return this.http.post('http://192.168.2.32:3003/Login', cliente).subscribe(resp =>{
+  return this.http.post('http://127.0.0.1:3003/Login', {cliente}).subscribe(resp =>{
      console.log(resp);
    });
 }
