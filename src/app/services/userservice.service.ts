@@ -26,7 +26,6 @@ export class UserserviceService {
         this.cargarUsuario("", localStorage.getItem('email').toString())
         console.log("constructor", localStorage.getItem('email').toString())
       }
-      
   }
 buscarLogin(ruta: string){
 return new Promise((resolve, reject) =>{
@@ -55,12 +54,7 @@ reCargarusuario(){
 getUser():Usuario{
   return this.user;
 }
-  login(email:string , password:string) {
-/*     this.afAuth.auth.signOut().then(function(){
-      console.log('Se cerro la sesion');
-    }).catch(function(err){
-      //error
-    }); */
+login(email:string , password:string) {
     //verificar usuario y retornar el jwt
     return new Promise((resolve, reject) => {
        this.afAuth.auth.signInWithEmailAndPassword(email, password)
@@ -69,6 +63,16 @@ getUser():Usuario{
  /*    }).catch(error => {console.log(error) */
   });
   }
+  register(email:string , password:string) {
+    //verificar usuario y retornar el jwt
+    return new Promise((resolve, reject) => {
+       this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+      .then(userData => resolve(userData) ,
+        error => reject(error));
+ /*    }).catch(error => {console.log(error) */
+  });
+  }
+
   generarToken(){
     let email = this.afAuth.auth.currentUser.email;
     let uid = this.afAuth.auth.currentUser.uid ;
@@ -109,19 +113,6 @@ getUser():Usuario{
    return this.afAuth.authState;
  }
  isAutenticated(){
-/*    let mipromesa = new Promise((resolve, reject) =>{
-    resolve(this.buscarLogin()),
-    err =>  reject(err);
-  })
-  .then((mensaje)=>{
-    console.log("promesa buscarloguin ok", mensaje);
-    return true;
-  }).catch((mensaje)=>{
-    console.log("promesa buscarloguin chatch", mensaje);
-    return false;
-  }) */
-
-/*    this.buscarLogin() */
   console.log("chequeo isAutenticated");
     if (!this.user){
       console.log("No autenticado");

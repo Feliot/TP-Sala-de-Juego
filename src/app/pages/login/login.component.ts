@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   user: Usuario;
-  public msjerror: string ;
+  public  msjerror: string ;
 public email: string;
 public password: string ;
 /* public miemail = new FormControl('', [Validators.required, Validators.email]); */

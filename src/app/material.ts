@@ -1,7 +1,7 @@
 // GERMAN Molina hago este archivo para importar todo lo relacionado a Material.IO
 // desde a este archivo y que el app me quede mas limpio
 //https://material.io/resources/icons/?icon=fingerprint&style=baseline iconos!
-import{  MatSelectModule } from '@angular/material'
+import {  MatSelectModule } from '@angular/material'
 import { MatButtonModule } from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';

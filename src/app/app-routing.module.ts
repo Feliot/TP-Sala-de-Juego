@@ -19,6 +19,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { TatetiComponent } from './components/tateti/tateti.component';
 import { MapaDelTesoroComponent } from './components/mapa-del-tesoro/mapa-del-tesoro.component';
 import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent,
@@ -36,6 +37,7 @@ const routes: Routes = [
   {path: 'usuarios', component: UsuariosComponent,
   canActivate:[ AuthGuard]},
   {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
   {path: 'cliente', component: ClienteComponent,
   children:[
     {path: 'clienteLogin', component: ClienteLoginComponent},
@@ -51,4 +53,4 @@ const routes: Routes = [
 export class AppRoutingModule { }
 export const routingComponents = [HomeComponent, UsuariosComponent, 
   JuegosComponent, DetalleComponent, ErrorComponent, AddusuarioComponent,
-   FormDatosComponent, FilaComponent, AnagramaComponent, MapaDelTesoroComponent, LoginComponent]
+   FormDatosComponent, FilaComponent, AnagramaComponent, MapaDelTesoroComponent, LoginComponent, RegisterComponent]
