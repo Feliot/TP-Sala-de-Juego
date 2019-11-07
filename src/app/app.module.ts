@@ -1,5 +1,7 @@
+import { UtilmoduleModule } from './utils/utilmodule.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PagesModule } from './pages/pages.module';
@@ -36,7 +38,8 @@ import {MatListModule} from '@angular/material/list'; */
     MaterialModule,
     FormsModule,
     HttpClientModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    UtilmoduleModule
 
   ],
   providers: [],

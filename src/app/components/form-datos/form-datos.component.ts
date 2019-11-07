@@ -42,7 +42,7 @@ export class FormDatosComponent implements AfterContentInit {
     }
     let content = this.contenidoRef.nativeElement;
     doc.fromHTML(content.innerHTML, 15, 15, {
-     'whith': 160 ,
+     'whith': 190 ,
      'elementHandlers': manejadorEspecial
     });
     doc.save('test.pdf');

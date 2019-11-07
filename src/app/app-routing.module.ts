@@ -1,3 +1,4 @@
+
 import { CrearComponent } from './pages/cliente/crear/crear.component';
 import { ClienteLoginComponent } from './pages/cliente/cliente-login/cliente-login.component';
 
@@ -20,6 +21,7 @@ import { TatetiComponent } from './components/tateti/tateti.component';
 import { MapaDelTesoroComponent } from './components/mapa-del-tesoro/mapa-del-tesoro.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent,
@@ -53,4 +55,5 @@ const routes: Routes = [
 export class AppRoutingModule { }
 export const routingComponents = [HomeComponent, UsuariosComponent, 
   JuegosComponent, DetalleComponent, ErrorComponent, AddusuarioComponent,
-   FormDatosComponent, FilaComponent, AnagramaComponent, MapaDelTesoroComponent, LoginComponent, RegisterComponent]
+   FormDatosComponent, FilaComponent, AnagramaComponent, MapaDelTesoroComponent,
+    LoginComponent, RegisterComponent]

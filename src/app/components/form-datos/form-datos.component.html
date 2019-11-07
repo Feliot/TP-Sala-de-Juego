@@ -1,8 +1,5 @@
-<div id="contenido">
-    <p>contenido 1</p>
-        <button (click)="exportarPDF()"> Esportar a PDF</button>
-</div>
-
+<button (click)="exportarPDF()"> Esportar a PDF</button>
+<div #contenido>
 <table mat-table [dataSource]="usuarios" class="mat-elevation-z8" >
     <ng-container [matColumnDef]="column" *ngFor="let column of arrayUsuario">
         <th mat-header-cell *matHeaderCellDef> {{ column | titlecase}} </th>
@@ -23,7 +20,7 @@
       <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
     <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
 </table>
-
+</div>
 <!-- <thead mat-header-row> 
     <td mat-header-cell *ngFor="let item of arrayUsuario">{{ item }} </td>
  </thead>

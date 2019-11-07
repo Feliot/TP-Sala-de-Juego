@@ -1,3 +1,4 @@
+import { CaptchaComponent } from './../../utils/mi-captcha/captcha/captcha.component';
 import { Component, OnInit, Input } from '@angular/core';
 import { UserserviceService } from '../../services/userservice.service'
 import { FormGroup, FormControl, Validators} from '@angular/forms';
