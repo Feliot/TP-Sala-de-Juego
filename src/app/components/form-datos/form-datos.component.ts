@@ -1,8 +1,9 @@
-import { Output} from '@angular/core';
+import { Output, ElementRef, ViewChild, AfterContentInit, OnInit} from '@angular/core';
 import{ Usuario, miUsuario } from '../../models/usuario'
 import{ Puntaje, miPuntaje } from '../../models/puntaje'
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input} from '@angular/core';
 import { UsuariosComponent } from 'src/app/pages/usuarios/usuarios.component';
+import * as jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-form-datos',
@@ -10,10 +11,11 @@ import { UsuariosComponent } from 'src/app/pages/usuarios/usuarios.component';
   styleUrls: ['./form-datos.component.css']
 })
 
-export class FormDatosComponent implements OnInit {
+export class FormDatosComponent implements AfterContentInit {
 
+@ViewChild('contenido', {static: false}) contenidoRef: ElementRef;
 
-  private arrayUsuario = Object.keys(new miPuntaje);
+  public arrayUsuario = Object.keys(new miPuntaje);
   private posisionUid = this.arrayUsuario.indexOf('uid');
   columnsToDisplay: string[] = this.arrayUsuario.slice(0, this.posisionUid);
 
@@ -22,11 +24,29 @@ export class FormDatosComponent implements OnInit {
 
   constructor() { }
   @Input() usuarios: Puntaje[];
-  
-  ngOnInit() {
-    console.log("formdata: ", this.usuarios);
+  ngAfterContentInit(){
+    this.contenidoRef.nativeElement.focus();
   }
-  
+/*   ngOnInit() {
+    console.log("formdata: ", this.usuarios);
+  } */
+  /**
+   * exportarPDF
+   */
+  public exportarPDF() {
+    let doc = new jsPDF();
+    let manejadorEspecial = {
+      '#editor': function(element, renderer){
+        return true;
+      }
+    }
+    let content = this.contenidoRef.nativeElement;
+    doc.fromHTML(content.innerHTML, 15, 15, {
+     'whith': 160 ,
+     'elementHandlers': manejadorEspecial
+    });
+    doc.save('test.pdf');
+  }
   
 }
 

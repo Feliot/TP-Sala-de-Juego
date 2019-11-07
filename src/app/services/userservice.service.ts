@@ -63,7 +63,7 @@ login(email:string , password:string) {
  /*    }).catch(error => {console.log(error) */
   });
   }
-  register(email:string , password:string) {
+register(email:string , password:string) {
     //verificar usuario y retornar el jwt
     return new Promise((resolve, reject) => {
        this.afAuth.auth.createUserWithEmailAndPassword(email, password)
@@ -80,7 +80,7 @@ login(email:string , password:string) {
     .then(function(jsonwebtoken: string) {
       console.log('jsonwebtoken');
       localStorage.setItem('token', jsonwebtoken);
-      localStorage.setItem('email', email );
+     /*  localStorage.setItem('email', email ); */
       // se comenta porque no hace falta ahora con auth localStorage.setItem('uid', uid );
     } )
     .catch(err => console.log(err))
@@ -88,7 +88,7 @@ login(email:string , password:string) {
 
   logOut(){
     localStorage.removeItem('token');
-    localStorage.removeItem('email');
+    /* localStorage.removeItem('email'); */
     this.afAuth.auth.signOut();
     this.user = null;
     this.mirouter.navigate(['login']);

@@ -56,6 +56,7 @@ Perder(){
     this.comienzo();
   }
   contador;
+  unaPalabra;
   palabrasOrdenadas;
   palabrasDesordenadas;
   numeroRandom;

@@ -5,6 +5,8 @@ import { UserserviceService } from '../../services/userservice.service'
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { miUsuario, Usuario } from 'src/app/models/usuario';
 import { Router } from '@angular/router';
+import { finalize } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -19,6 +21,7 @@ export class RegisterComponent implements OnInit {
   public msjerror: string ;
 
   constructor(private miAuth: UserserviceService, private authRout: Router, private storage: AngularFireStorage) { }
+ urlImage: Observable<string>;
 
   ngOnInit() {
     this.miAuth.getAuth()
@@ -29,7 +32,7 @@ export class RegisterComponent implements OnInit {
   onSubmitRegister(){
         this.miAuth.register(this.email, this.password)
         .then(res => {
-          console.log('logueando, yendo a casa');
+          console.log('logueando, yendo a casa', this.urlImage);
           this.authRout.navigate(['/home']);
         })
         .catch( err => this.msjerror = err );
@@ -38,8 +41,9 @@ export class RegisterComponent implements OnInit {
       console.log('Archivo', e.target.files[0]);
       const file =  e.target.files[0];
       const filePath = "upload/image.jpg";
-      const ref = this.storage.ref('');
+      const ref = this.storage.ref(filePath);
       const task = this.storage.upload(filePath, file);
+      task.snapshotChanges().pipe(finalize( () => this.urlImage = ref.getDownloadURL())).subscribe();//url imagen
       console.log('Uploaded a blob or file!');
     }
     
