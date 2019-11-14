@@ -12,7 +12,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   user: Usuario;
-  public  msjerror: string ;
+public bactivate : boolean;
+public msjerror: string ;
 public email: string;
 public password: string ;
 /* public miemail = new FormControl('', [Validators.required, Validators.email]); */
@@ -23,11 +24,19 @@ public password: string ;
   } */
   constructor(private miAuth: UserserviceService, private authRout: Router) { 
   }
+  
   ngOnInit() {
     this.miAuth.getAuth()
     .subscribe(user =>{
       this.user = user;
     })
+  }
+  activar(e){
+    console.log("bActiate ", e);
+    this.bactivate= e;
+  }
+  noActivado(){
+    console.log("No activado");
   }
 
 onSubmitLoginPublic(){

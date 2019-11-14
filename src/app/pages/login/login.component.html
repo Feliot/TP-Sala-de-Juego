@@ -13,10 +13,17 @@
  <mat-form-field>
             <input matInput placeholder="password"  type="password" [(ngModel)]="password" required name="password">
 </mat-form-field>
-<app-captcha (resolved)="resolved($event)"></app-captcha>
+<app-captcha (resolved)="resolved($event)" (bactivate)="activar($event)"></app-captcha>
    <br> 
-<button mat-raised-button color="primary" (click)="onSubmitLogin()">
-    <span>Loguear  </span><mat-icon>email</mat-icon></button>
+   <div *ngIf="bactivate; else elseBlock">
+    <button mat-raised-button color="primary" (click)="onSubmitLogin()" >
+        <span>Loguear  </span><mat-icon>email</mat-icon></button>
+   </div>
+   <ng-template #elseBlock>
+    <button mat-raised-button color="Disabled">
+        <span>Loguear  </span><mat-icon>email</mat-icon></button>
+   </ng-template>
+
 <br> 
 <span class="errormje">{{ msjerror }}</span> 
  <br>
